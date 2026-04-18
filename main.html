@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargo Manifest Validator</title>
+    <link rel="stylesheet" href="styyle.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                <h1>Cargo Manifest Validator</h1>
+            </div>
+            <p class="subtitle">Professional Shipping & Logistics Management System</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <section class="form-section">
+                <h2>Manifest Entry</h2>
+                <form id="manifestForm" class="manifest-form">
+                    <div class="form-group">
+                        <label for="containerId">Container ID</label>
+                        <input 
+                            type="number" 
+                            id="containerId" 
+                            name="containerId" 
+                            placeholder="e.g., 68"
+                            required
+                            min="1"
+                        >
+                        <small>Must be a positive integer</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input 
+                            type="text" 
+                            id="destination" 
+                            name="destination" 
+                            placeholder="e.g., Salinas"
+                            required
+                        >
+                        <small>City or location name</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="weight">Weight</label>
+                            <input 
+                                type="number" 
+                                id="weight" 
+                                name="weight" 
+                                placeholder="e.g., 101"
+                                required
+                                min="0.1"
+                                step="0.1"
+                            >
+                            <small>Numeric value</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unit">Unit</label>
+                            <select id="unit" name="unit" required>
+                                <option value="">Select Unit</option>
+                                <option value="lb">Pounds (lb)</option>
+                                <option value="kg">Kilograms (kg)</option>
+                            </select>
+                            <small>Weight measurement</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label for="hazmat" class="checkbox-label">
+                            <input 
+                                type="checkbox" 
+                                id="hazmat" 
+                                name="hazmat"
+                                class="checkbox-input"
+                            >
+                            <span class="checkbox-text">Hazardous Material</span>
+                        </label>
+                        <small>Check if cargo contains hazardous materials</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Validate Manifest</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </form>
+            </section>
+
+            <section class="results-section">
+                <h2>Validation Results</h2>
+                <div id="resultContainer" class="result-container hidden">
+                    <div id="statusBox" class="status-box"></div>
+                    <div id="manifestDetails" class="manifest-details"></div>
+                    <div id="errorsDisplay" class="errors-display hidden"></div>
+                    <div id="successMessage" class="success-message hidden">
+                        <div class="success-icon">✓</div>
+                        <p>Manifest validation successful!</p>
+                    </div>
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p>Enter cargo details and validate to see results</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Cargo Manifest Validator. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
